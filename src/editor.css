@@ -139,3 +139,7 @@
 .preview pre code {
   background-color: transparent;
 }
+
+.preview a {
+  color: white;
+}
