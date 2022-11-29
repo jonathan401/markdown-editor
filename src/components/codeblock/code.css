@@ -1,0 +1,49 @@
+.code-block {
+  background-color: #1e293b !important;
+}
+
+.code-block code {
+  line-height: 1;
+  padding: 0.25rem;
+  color: white;
+  border-radius: 0.2rem;
+  background-color: inherit !important;
+}
+
+.code-block blockquote {
+  border-radius: 0.3rem;
+  padding: 1rem;
+  color: rgb(250, 250, 250);
+  background-color: rgb(30, 41, 59);
+  border-left: 4px solid rgb(51, 65, 85);
+  margin: 0.7rem 0;
+  max-width: 100%;
+}
+
+.code-block pre {
+  line-height: 1.2;
+  position: relative;
+  font-family: inherit;
+  padding: 2rem;
+  margin: 0.7rem 0;
+  border-radius: 0.2rem;
+  overflow-x: auto;
+  max-width: 100%;
+  background-color: rgb(30, 41, 59);
+}
+
+.code-block pre::after {
+  content: "";
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  width: 1.3rem;
+  height: 1.3rem;
+  background-color: red;
+}
+
+.preview pre code {
+  background-color: transparent;
+}
