@@ -11,8 +11,8 @@ import {
 } from "react-icons/md";
 import { BiPencil } from "react-icons/bi";
 
-import CodeBlock from "./components/codeblock/CodeBlock";
-import "./editor.css";
+import { CodeBlock } from "./components/codeblock";
+import "./editor.style.css";
 
 const Editor = () => {
   const [editorContent, seteditorContent] = useState("");
@@ -32,14 +32,18 @@ const Editor = () => {
           className={selectedTab === "write" ? "btn active" : "btn"}
           onClick={() => setSelectedTab("write")}
         >
-          <BiPencil />
+          <span className="tab-icon">
+            <BiPencil />
+          </span>
           <span>Write</span>
         </button>
         <button
           className={selectedTab === "preview" ? "btn active" : "btn"}
           onClick={() => setSelectedTab("preview")}
         >
-          <AiOutlineEye />
+          <span className="tab-icon">
+            <AiOutlineEye />
+          </span>
           <span>Preview</span>
         </button>
         {selectedTab === "write" ? (
@@ -110,6 +114,7 @@ const Editor = () => {
       ) : (
         <ReactMarkdown
           components={CodeBlock}
+          linkTarget="_blank"
           remarkPlugins={[remarkGm]}
           className="preview"
         >

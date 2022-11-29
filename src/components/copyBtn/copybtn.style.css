@@ -1,0 +1,36 @@
+.copy-btn {
+  z-index: 12;
+  font-family: inherit;
+  outline: 0;
+  border: 0;
+  color: white;
+  font-size: 0.76rem;
+  cursor: pointer;
+  position: absolute;
+  background-color: transparent;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy-btn.active {
+  color: green;
+}
+
+.copy-btn.inactive {
+  color: white;
+}
+
+.copy-btn span {
+  display: inline-block;
+}
+
+.copy-btn-icon {
+  font-size: 1rem;
+}
+
+.copy-text {
+  margin-right: -0.2rem;
+}
