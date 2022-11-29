@@ -41,7 +41,7 @@
 
 .controls button {
   padding: 0.3rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .controls button:hover {
@@ -112,7 +112,7 @@
   max-width: 100%;
 }
 
-.preview pre {
+/* .preview pre {
   line-height: 1.2;
   position: relative;
   font-family: inherit;
@@ -138,7 +138,7 @@
 
 .preview pre code {
   background-color: transparent;
-}
+} */
 
 .preview a {
   color: white;

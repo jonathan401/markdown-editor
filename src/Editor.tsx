@@ -1,5 +1,7 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGm from "remark-gfm";
+
 import { AiOutlineBold, AiOutlineItalic, AiOutlineEye } from "react-icons/ai";
 import { HiOutlineCode } from "react-icons/hi";
 import { BsLink45Deg, BsBlockquoteLeft } from "react-icons/bs";
@@ -8,9 +10,8 @@ import {
   MdOutlineFormatListNumbered,
 } from "react-icons/md";
 import { BiPencil } from "react-icons/bi";
-// import { materialLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
-// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
+import CodeBlock from "./components/codeblock/CodeBlock";
 import "./editor.css";
 
 const Editor = () => {
@@ -20,6 +21,7 @@ const Editor = () => {
   const handleKey = (e: any) => {
     if (e.code === "Tab") {
       e.preventDefault();
+      console.log("tabbed");
       seteditorContent((prevState) => prevState + "\t");
     }
   };
@@ -107,7 +109,11 @@ const Editor = () => {
           onChange={(e) => seteditorContent(e.target.value)}
         />
       ) : (
-        <ReactMarkdown className="preview">
+        <ReactMarkdown
+          components={CodeBlock}
+          remarkPlugins={[remarkGm]}
+          className="preview"
+        >
           {editorContent ? editorContent : "Nothing to see here 🌵"}
         </ReactMarkdown>
       )}
