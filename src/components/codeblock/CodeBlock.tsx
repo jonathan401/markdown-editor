@@ -2,7 +2,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { shadesOfPurple } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { CodeProps } from "react-markdown/lib/ast-to-react";
 
-import { CopyBtn } from "../copybtn";
+import { CopyBtn } from "../copyBtn";
 
 // styles
 import "./code.style.css";
