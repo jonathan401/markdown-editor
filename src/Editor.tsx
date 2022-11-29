@@ -21,7 +21,6 @@ const Editor = () => {
   const handleKey = (e: any) => {
     if (e.code === "Tab") {
       e.preventDefault();
-      console.log("tabbed");
       seteditorContent((prevState) => prevState + "\t");
     }
   };

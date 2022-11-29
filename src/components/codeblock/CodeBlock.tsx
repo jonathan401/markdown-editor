@@ -1,5 +1,5 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { shadesOfPurple } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { CodeProps } from "react-markdown/lib/ast-to-react";
 
 // styles
@@ -11,7 +11,7 @@ const CodeBlock = {
 
     return !inline && match ? (
       <SyntaxHighlighter
-        style={materialLight}
+        style={shadesOfPurple}
         PreTag="div"
         className="code-block"
         language={match[1]}
