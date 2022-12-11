@@ -1,0 +1,17 @@
+.toolbar {
+  display: flex;
+  margin-left: auto;
+  justify-self: flex-end;
+  padding: 0.1rem;
+}
+
+.toolbar .btn {
+  background-color: #111827;
+  padding: 0.3rem;
+  font-size: 1.5rem;
+  margin: 0.3rem;
+}
+
+.toolbar .btn:hover {
+  background-color: rgba(51, 65, 85, 0.7);
+}
