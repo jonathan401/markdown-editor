@@ -108,7 +108,7 @@ button.write {
   margin: 0 auto;
   font-size: 1.125rem;
   padding: 3rem 1rem;
-  line-height: 1.77778;
+  /* line-height: 1.77778; */
   overflow-wrap: break-word;
 }
 
@@ -131,6 +131,13 @@ button.write {
 }
 
 /* preview headings */
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1;
+}
+
 .preview h1 {
   margin-bottom: 1.6rem;
 }

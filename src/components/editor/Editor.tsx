@@ -2,6 +2,12 @@ import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGm from "remark-gfm";
 
+// context stuff
+import { useEditorContext } from "../../contexts/EditorContext";
+
+// config buttons
+import EditorConfig from "./EditorConfig";
+
 import { AiOutlineBold, AiOutlineItalic, AiOutlineEye } from "react-icons/ai";
 import { HiOutlineCode } from "react-icons/hi";
 import { BsLink45Deg, BsBlockquoteLeft } from "react-icons/bs";
@@ -15,13 +21,14 @@ import { CodeBlock } from "../codeblock";
 import "./editor.style.css";
 
 const Editor = () => {
-  const [editorContent, seteditorContent] = useState("");
+  const { content, setContent } = useEditorContext();
   const [selectedTab, setSelectedTab] = useState<"write" | "preview">("write");
 
   const handleKey = (e: any) => {
     if (e.code === "Tab") {
       e.preventDefault();
-      seteditorContent((prevState) => prevState + "\t");
+      setContent((prevState) => prevState + "\t");
+      console.log("content");
     }
   };
 
@@ -49,36 +56,32 @@ const Editor = () => {
         {selectedTab === "write" ? (
           <div className="controls">
             <button
-              onClick={() =>
-                seteditorContent((prevState) => prevState + "****")
-              }
+              onClick={() => setContent((prevState) => prevState + "****")}
               className="btn"
             >
               <AiOutlineBold />
             </button>
             <button
-              onClick={() => seteditorContent((prevState) => prevState + "**")}
+              onClick={() => setContent((prevState) => prevState + "**")}
               className="btn"
             >
               <AiOutlineItalic />
             </button>
             <button
-              onClick={() => seteditorContent((prevState) => prevState + "\n-")}
+              onClick={() => setContent((prevState) => prevState + "\n-")}
               className="btn"
             >
               <MdOutlineFormatListBulleted />
             </button>
             <button
-              onClick={() =>
-                seteditorContent((prevState) => prevState + "\n1.")
-              }
+              onClick={() => setContent((prevState) => prevState + "\n1.")}
               className="btn"
             >
               <MdOutlineFormatListNumbered />
             </button>
             <button
               onClick={() =>
-                seteditorContent((prevState) => prevState + "\n```\n```")
+                setContent((prevState) => prevState + "\n```\n```")
               }
               className="btn"
             >
@@ -86,14 +89,14 @@ const Editor = () => {
             </button>
             <button
               onClick={() =>
-                seteditorContent((prevState) => prevState + "[Text](Link)")
+                setContent((prevState) => prevState + "[Text](Link)")
               }
               className="btn"
             >
               <BsLink45Deg />
             </button>
             <button
-              onClick={() => seteditorContent((prevState) => prevState + "\n>")}
+              onClick={() => setContent((prevState) => prevState + "\n>")}
               className="btn"
             >
               <BsBlockquoteLeft />
@@ -107,9 +110,9 @@ const Editor = () => {
         <textarea
           onKeyDown={handleKey}
           className="editor"
-          placeholder="Tell your story..."
-          value={editorContent}
-          onChange={(e) => seteditorContent(e.target.value)}
+          placeholder="Tell your stor"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
         />
       ) : (
         <ReactMarkdown
@@ -118,7 +121,7 @@ const Editor = () => {
           remarkPlugins={[remarkGm]}
           className="preview"
         >
-          {editorContent ? editorContent : "Nothing to see here 🌵"}
+          {content ? content : "Nothing to see here 🌵"}
         </ReactMarkdown>
       )}
     </div>

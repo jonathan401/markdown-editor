@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "@types/babel__generator": "^7.6.4",
     "@types/react-syntax-highlighter": "^15.5.5",
     "react-icons": "^4.6.0",
     "react-syntax-highlighter": "^15.5.0",

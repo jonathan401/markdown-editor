@@ -1,10 +1,15 @@
 import React, { FC } from "react";
-import Editor from "./Editor";
+import Editor from "./components/editor/Editor";
+
+// context
+import { EditorProvider } from "./contexts/EditorContext";
 
 const App: FC = () => {
   return (
     <div>
-      <Editor />
+      <EditorProvider>
+        <Editor />
+      </EditorProvider>
     </div>
   );
 };
