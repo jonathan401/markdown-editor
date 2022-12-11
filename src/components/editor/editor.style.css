@@ -5,7 +5,23 @@
   font-family: "Roboto", sans-serif;
 }
 
-.btn-wrap {
+.toolbar-wrap button {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  color: rgb(250, 250, 250);
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  border-radius: 0.3rem;
+  border: 0;
+  outline: 0;
+}
+
+.toolbar-wrap {
   border-top: 0.01rem solid rgba(30, 41, 59, 1);
   border-bottom: 0.01rem solid rgba(30, 41, 59, 1);
   background-color: #111827;
@@ -14,6 +30,7 @@
   top: 0;
   left: 0;
   padding: 0.4rem;
+  height: fit-content;
   margin: 0.3rem 0;
   display: flex;
   flex-wrap: wrap;
@@ -22,59 +39,10 @@
 button.preview,
 button.write {
   font-weight: 600;
-  background-color: red;
 }
 
 .tab-icon {
   font-size: 1.2rem;
-}
-
-.btn-wrap button {
-  display: flex;
-  align-items: center;
-}
-
-.btn-wrap span {
-  display: inline-block;
-  margin-left: 0.3rem;
-}
-
-.btn.active {
-  color: #305ee1;
-  background-color: #111827;
-}
-
-.controls {
-  display: flex;
-  margin-left: auto;
-  justify-self: flex-end;
-}
-
-.controls button {
-  padding: 0.3rem;
-  font-size: 1.4rem;
-}
-
-.controls button:hover {
-  background-color: rgba(51, 65, 85, 0.7);
-}
-
-.btn {
-  background-color: #111827;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(250, 250, 250);
-  text-align: center;
-  font-weight: 500;
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
-  font-size: 0.96rem;
-  font-family: inherit;
-  border-radius: 0.3rem;
-  margin: 0.2rem;
-  border: 0;
-  outline: 0;
 }
 
 .editor,

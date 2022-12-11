@@ -2,115 +2,64 @@ import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGm from "remark-gfm";
 
+// icons
+import { BiPencil } from "react-icons/bi";
+import { AiOutlineEye } from "react-icons/ai";
+
 // context stuff
 import { useEditorContext } from "../../contexts/EditorContext";
 
-// config buttons
-import EditorConfig from "./EditorConfig";
-
-import { AiOutlineBold, AiOutlineItalic, AiOutlineEye } from "react-icons/ai";
-import { HiOutlineCode } from "react-icons/hi";
-import { BsLink45Deg, BsBlockquoteLeft } from "react-icons/bs";
-import {
-  MdOutlineFormatListBulleted,
-  MdOutlineFormatListNumbered,
-} from "react-icons/md";
-import { BiPencil } from "react-icons/bi";
-
+// components
 import { CodeBlock } from "../codeblock";
+import { Tab } from "../tab";
+import { Toolbar } from "../toolbar";
+
+// styles
 import "./editor.style.css";
 
 const Editor = () => {
+  const { addTab } = useEditorContext();
   const { content, setContent } = useEditorContext();
   const [selectedTab, setSelectedTab] = useState<"write" | "preview">("write");
 
   const handleKey = (e: any) => {
     if (e.code === "Tab") {
       e.preventDefault();
-      setContent((prevState) => prevState + "\t");
+      addTab();
       console.log("content");
     }
   };
 
   return (
     <div className="markdown-wrap">
-      <div className="btn-wrap">
-        <button
-          className={selectedTab === "write" ? "btn active" : "btn"}
-          onClick={() => setSelectedTab("write")}
+      <div className="toolbar-wrap">
+        <Tab
+          tabName="write"
+          selectedTab={selectedTab}
+          setSelectedTab={setSelectedTab}
         >
           <span className="tab-icon">
             <BiPencil />
           </span>
           <span>Write</span>
-        </button>
-        <button
-          className={selectedTab === "preview" ? "btn active" : "btn"}
-          onClick={() => setSelectedTab("preview")}
+        </Tab>
+        <Tab
+          tabName="preview"
+          selectedTab={selectedTab}
+          setSelectedTab={setSelectedTab}
         >
           <span className="tab-icon">
             <AiOutlineEye />
           </span>
           <span>Preview</span>
-        </button>
-        {selectedTab === "write" ? (
-          <div className="controls">
-            <button
-              onClick={() => setContent((prevState) => prevState + "****")}
-              className="btn"
-            >
-              <AiOutlineBold />
-            </button>
-            <button
-              onClick={() => setContent((prevState) => prevState + "**")}
-              className="btn"
-            >
-              <AiOutlineItalic />
-            </button>
-            <button
-              onClick={() => setContent((prevState) => prevState + "\n-")}
-              className="btn"
-            >
-              <MdOutlineFormatListBulleted />
-            </button>
-            <button
-              onClick={() => setContent((prevState) => prevState + "\n1.")}
-              className="btn"
-            >
-              <MdOutlineFormatListNumbered />
-            </button>
-            <button
-              onClick={() =>
-                setContent((prevState) => prevState + "\n```\n```")
-              }
-              className="btn"
-            >
-              <HiOutlineCode />
-            </button>
-            <button
-              onClick={() =>
-                setContent((prevState) => prevState + "[Text](Link)")
-              }
-              className="btn"
-            >
-              <BsLink45Deg />
-            </button>
-            <button
-              onClick={() => setContent((prevState) => prevState + "\n>")}
-              className="btn"
-            >
-              <BsBlockquoteLeft />
-            </button>
-          </div>
-        ) : (
-          ""
-        )}
+        </Tab>
+        {selectedTab === "write" ? <Toolbar /> : ""}
       </div>
       {selectedTab === "write" ? (
         <textarea
           onKeyDown={handleKey}
           className="editor"
-          placeholder="Tell your stor"
+          placeholder="Tell your story..."
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
