@@ -12,7 +12,7 @@ import { useEditorContext } from "../../contexts/EditorContext";
 // components
 import { CodeBlock } from "../codeblock";
 import { Tab } from "../tab";
-import { Toolbar } from "../Toolbar";
+import { Toolbar } from "../toolbar";
 
 // styles
 import "./editor.style.css";
