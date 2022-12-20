@@ -76,8 +76,23 @@ button.write {
   margin: 0 auto;
   font-size: 1.125rem;
   padding: 3rem 1rem;
-  /* line-height: 1.77778; */
   overflow-wrap: break-word;
+}
+
+.preview code {
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  font-weight: 400;
+  color: inherit;
+  background-color: rgb(31, 41, 55);
+}
+
+.preview pre {
+  position: relative;
+}
+
+.preview a {
+  color: white;
 }
 
 .preview blockquote {
@@ -88,14 +103,6 @@ button.write {
   border-left: 4px solid rgb(51, 65, 85);
   margin: 0.7rem 0;
   max-width: 100%;
-}
-
-.preview pre {
-  position: relative;
-}
-
-.preview a {
-  color: white;
 }
 
 /* preview headings */

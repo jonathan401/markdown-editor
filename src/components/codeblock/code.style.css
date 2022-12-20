@@ -1,4 +1,4 @@
-.code-block blockquote {
+/* .code-block blockquote {
   border-radius: 0.3rem;
   padding: 1rem;
   color: rgb(250, 250, 250);
@@ -6,7 +6,7 @@
   border-left: 4px solid rgb(51, 65, 85);
   margin: 0.7rem 0;
   max-width: 100%;
-}
+} */
 
 .code-block {
   line-height: 1.75;
