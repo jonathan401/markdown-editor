@@ -11,7 +11,7 @@ import { useEditorContext } from "../../contexts/EditorContext";
 
 // components
 import { CodeBlock } from "../codeblock";
-import { Tab } from "../tab";
+import Tab from "../tab/Tab";
 import { Toolbar } from "../toolbar";
 
 // styles
